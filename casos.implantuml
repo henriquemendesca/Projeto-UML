@@ -1,0 +1,19 @@
+@startuml
+start
+
+:Inserir cartão;
+:Digitar senha;
+:ATM valida senha;
+:Solicitar valor do saque;
+:Banco verifica saldo;
+
+if (Saldo suficiente?) then (Sim)
+  :Entregar dinheiro;
+else (Não)
+  :Exibir mensagem de erro;
+endif
+
+:Devolver cartão;
+
+stop
+@enduml
