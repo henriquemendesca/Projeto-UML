@@ -1,0 +1,14 @@
+@startuml
+actor Cliente
+actor Banco
+
+Cliente --> (Inserir cartão)
+Cliente --> (Digitar senha)
+Cliente --> (Solicitar saque)
+
+(Validar senha) <-- Banco
+(Verificar saldo) <-- Banco
+
+Cliente --> (Realizar saque)
+
+@enduml
