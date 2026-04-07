@@ -1,0 +1,34 @@
+@startuml
+
+class Cliente {
+nome
+cpf
+senha
+autenticar()
+}
+
+class Conta {
+numero
+saldo
+verificarSaldo()
+sacar()
+}
+
+class Transacao {
+tipo
+valor
+data
+registrar()
+}
+
+class ATM {
+validarSenha()
+verificarSaldo()
+liberarDinheiro()
+}
+
+Cliente --> Conta
+Conta --> Transacao
+ATM --> Conta
+
+@enduml
