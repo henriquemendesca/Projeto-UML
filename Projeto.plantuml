@@ -1,0 +1,72 @@
+@startuml
+start
+
+:Inserir cartão;
+:Digitar senha;
+:ATM valida senha;
+:Solicitar valor do saque;
+:Banco verifica saldo;
+
+if (Saldo suficiente?) then (Sim)
+  :Entregar dinheiro;
+else (Não)
+  :Exibir mensagem de erro;
+endif
+
+:Devolver cartão;
+
+stop
+@enduml
+
+
+
+@startuml
+
+class Cliente {
+nome
+cpf
+senha
+autenticar()
+}
+
+class Conta {
+numero
+saldo
+verificarSaldo()
+sacar()
+}
+
+class Transacao {
+tipo
+valor
+data
+registrar()
+}
+
+class ATM {
+validarSenha()
+verificarSaldo()
+liberarDinheiro()
+}
+
+Cliente --> Conta
+Conta --> Transacao
+ATM --> Conta
+
+@enduml
+
+
+@startuml
+actor Cliente
+actor Banco
+
+Cliente --> (Inserir cartão)
+Cliente --> (Digitar senha)
+Cliente --> (Solicitar saque)
+
+(Validar senha) <-- Banco
+(Verificar saldo) <-- Banco
+
+Cliente --> (Realizar saque)
+
+@enduml
